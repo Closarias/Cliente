@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Variables 2</title>
+    <script>
+        let a=1;
+        a=2;
+        b=3;
+        nueva();
+        nueva2("Hola mundo");
+            console.log("La variable global a vale "+a);
+
+        function nueva(){
+            let a ="Ja, ja"; //let local, no let global (entre llaves)
+            c=1;
+            console.log("La variable local a vale "+a);
+        }
+
+        function nueva2(a){
+            console.log("La variable local a vale "+a);
+        }
+
+        let puntos=100;
+        let nombreJugador;
+        let vidas=3;
+        const DIFICIL=5;
+        nombreJugador="Héroe";
+        puntos=puntos+matarMonstruos(23,46 /*argumentos*/);
+        alert("Puntos totales: "+puntos);
+
+        function matarMonstruos(num1,num2 /*parámetros*/){
+            let puntos=(num1+num2)*DIFICIL;
+            console.log("Puntos ganados: "+puntos);
+            return puntos;
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

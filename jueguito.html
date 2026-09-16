@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jueguito</title>
+    <style>
+        div{
+            font-size: 2em;
+            border: 1px solid black;
+            padding: 10px;
+            margin: 0 auto;
+            width: 400px;
+            height: 30px;
+        }
+        span{
+            color: red;
+        }
+        button{
+            border: none;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div>PUNTOS: <span id="puntos"></span> | VIDAS: <span id="vidas"></span></div>
+
+    <footer>
+        <button onclick="calcular(+100)">SUMAR</button>
+        <button onclick="calcular(-100)">RESTAR</button>
+    </footer>
+
+    <script>
+        let lives=3;
+        let points=300;
+        puntos.innerHTML=points;
+        vidas.innerHTML=lives;
+
+        function calcular(valor){
+            points+=valor;
+            if(points<=0){
+                lives -= 1;
+                points=300;
+            }
+            if(lives==0){
+                alert("GAME OVER");
+            }
+            puntos.innerHTML=points;
+            vidas.innerHTML=lives;
+        }
+
+    </script>
+
+</body>
+</html>
