@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 3</title>
+</head>
+<body>
+
+  <script>
+    //variables
+    let a;
+    a=1;
+    let b=2;
+    c=3;
+    var d; //desuso
+
+    //constantes
+    const NUMERO = 1;
+    Math.PI;
+    const MIARRAY=[1,2,3,4];
+    MIARRAY.push(5);
+
+    console.log("a vale " +a+ " b vale "+b+" c vale "+c)
+
+    //funciones
+      function prueba(){
+        let c=500; //si una variable está entre llaves solo funcionará en la función
+        console.log("c vale "+c);
+      }
+
+      function bucle(){
+        console.log("El número es "+NUMERO)
+        for (let i=1;i<10;i++){
+            console.log(i);
+        }
+        console.log("Fuera del bloque i vale: "+i);
+      }
+      bucle();
+  </script>
+
+</body>
+</html>
