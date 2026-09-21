@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Notas</title>
+    <style>
+        div{
+            font-size: 2em;
+            padding: 10px;
+            margin: 0 auto;
+            width: 100px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <div><span id="texto"></span></div>
+    <script>
+        let nota=prompt("¿Cuánto sacaste en programación?");
+        let mensaje="";
+        texto.innerHTML=mensaje;
+
+        //nota>=5?(alert("¡Felicidades, aprobaste!"), texto.innerHTML="¡Aprobado!<br>"+typeof mensaje):(alert("¡Has suspendido!"), texto.innerHTML="¡Suspendiste! <br>"+typeof mensaje);
+        //texto.innerHTML=nota>=5?"Aprobado":"Suspenso"; Versión simplificada
+
+        texto.innerHTML=nota<5?"Suspenso":nota<6?"Bien":nota<8?"Notable":nota<=10?"Sobresaliente":"Matrícula de honor";
+    </script>
+
+</body>
+</html>
