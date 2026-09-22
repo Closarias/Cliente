@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adivinar</title>
+</head>
+<style>
+    p{
+        font-size: 2em;
+        padding: 10px;
+        margin: 0 auto;
+        width: 100px;
+        height: 30px;
+    }
+</style>
+<body>
+
+    <p id="texto"></p>
+
+    <script>
+        let numero = Math.floor(Math.random() * 100);
+        let i = parseInt(prompt("Adivina el número"));
+        for (;i!=numero;) {
+            i=i<numero?parseInt(prompt("Más grande")):
+                parseInt(prompt("Más pequeño"));
+        }
+        texto.innerHTML = "Has acertado";
+    </script>
+
+</body>
+</html>
