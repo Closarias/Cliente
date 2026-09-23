@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Primo</title>
+</head>
+<body>
+
+    <script>
+
+        do{
+            num=prompt("Inserte número del 2 al 100 para saber si es primo");
+        } while (isNaN(num)||(num<2||num>100));
+        let primo=true;
+        for (i=2;i<num;i++){
+            if (num%i==0) {
+                primo=false;
+                break;
+            }
+        }
+        primo?alert("Es primo"):alert("No es primo porque es divisible por "+i);
+
+    </script>
+
+</body>
+</html>

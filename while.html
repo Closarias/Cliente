@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>While</title>
+</head>
+<body>
+
+    <script>
+        let a=1;
+        buclePrincipal:while(a<6){
+            let b=0;
+            bucleSecundario: while(b<10){
+                (b>11)?b=1:b++;
+                console.log("bucle A: "+a+" bucle b: "+b);
+                if(b==5) break bucleSecundario;
+                if(a==3) break buclePrincipal;
+            }
+        }
+    </script>
+
+</body>
+</html>
