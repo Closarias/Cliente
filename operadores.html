@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        // Me disparan?
+        // Llevo chaleco?
+        // Headshot?
+        // Fallo?
+        // Fogueo?
+
+        let disparo = confirm("¿Te han disparado?");
+        let chaleco = confirm("¿Llevas chaleco antibalas?");
+        let headshot = confirm("¿Te han disparado en la cabeza?");
+        let fallo = confirm("¿Ha fallado?");
+        let fogueo = confirm("¿Es de fogueo?");
+
+        !disparo || fallo || fogueo
+            ?alert("Vivo")
+            :chaleco && !headshot
+                ? alert("Vivo")
+                : alert("Muerto");
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+

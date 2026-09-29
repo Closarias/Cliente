@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Repaso</title>
+    <style>
+        span{
+            display: none;
+        }
+    </style>
+    <script>
+        // window.onload = inicio;
+        //
+        // function inicio(){
+        //     alert("se ha cargado");
+        // }
+
+        // window.onload = function(){
+        //     alert(texto.innerText); //innerContent muestra todo aun oculto
+        //     texto.innerHTML = "<b>Hola</b>";
+        // }
+
+        // window.onload = inicio
+        // function inicio(){}
+        // window.onload = function(){
+        //     alert(texto.textContent); //textContent muestra todo aun oculto
+        //     texto.outerHTML = "<b>Hola</b> caracola";
+        // }
+
+        // window.addEventListener("load", function(){
+        //     alert(texto.innerHTML);
+        // })
+
+        //window.addEventListener('load', mostrar);
+
+        function mostrar(){
+            alert(texto.textContent);
+            texto.outerHTML= "<h1>Repaso</h1>";
+        }
+    </script>
+
+</head>
+<body>
+
+    <p> Hola, mundo</p>
+    <p id="texto" onclick="mostrar()">Hola, <span>mundo</span></p>
+
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ocultar</title>
+    <style>
+        span{
+            display: none;
+        }
+    </style>
+    <script>
+        function mostrar(opcion){
+            // if (opcion === 1){
+            //     texto.innerHTML = texto2.innerHTML;
+            // } else if (opcion === 2) {
+            //     texto.innerText = texto2.innerText;
+            // } else if (opcion === 3){
+            //     texto.textContent = texto2.textContent;
+            // } else if (opcion === 4) {
+            //     texto2.outerHTML= "<h1>"+texto2.innerHTML+"</h1>";
+            // }
+
+            switch(opcion){
+                case 1:
+                    texto.innerHTML = texto2.innerHTML; //deja el texto igual
+                    break;
+                case 2:
+                    texto.innerText = texto2.innerText; //cambia si tiene alguna decoracion
+                    break;
+                case 3:
+                    texto.textContent = texto2.textContent; //enseña completamente
+                    break;
+                case 4:
+                    texto.outerHTML= "<h1 id='texto'>"+texto2.innerHTML+"</h1>"; //sobrescribe
+                    break;
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <div>
+        <p id="texto2">Este mensaje <del>esconde...</del><span>un mensaje</span></p>
+        <p id="texto"><span></span></p>
+    </div>
+    <div>
+        <button onclick="mostrar(1)">innerHTML</button>
+        <button onclick="mostrar(2)">innerText</button>
+        <button onclick="mostrar(3)">textContent</button>
+        <button onclick="mostrar(4)">outerHTML</button>
+    </div>
+
+</body>
+</html>

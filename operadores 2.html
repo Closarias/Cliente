@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        function empezar(){
+            let lluvia = confirm("¿Llueve?");
+            let salir = confirm("¿Sales de case?");
+            let paraguas = confirm("¿Has pillado el paraguas?");
+            let gorro = confirm("¿Llevas gorro?");
+            let calvo = confirm("¿Eres calvo?");
+
+            mojar.innerHTML = !lluvia || !salir || paraguas || gorro || calvo ? "No te mojas el pelo" : "Te mojas el pelo";
+            lluvia ? llueve.innerHTML = "Llueve": llueve.innerHTML = "No llueve";
+            salir ? sales.innerHTML = "Sales": sales.innerHTML = "No sales";
+            paraguas ? para.innerHTML = "Llevas paraguas" : para.innerHTML = "No llevas paraguas";
+            gorro ? llevas.innerHTML = "Llevas gorro" : llevas.innerHTML = "No llevas gorro";
+            calvo ? eres.innerHTML = "Eres calvo" : eres.innerHTML = "No eres calvo";
+        }
+
+    </script>
+</head>
+<body>
+
+    <button onclick="empezar()">EMPEZAR</button>
+
+    <div>
+        <p id="llueve">¿Llueve?</p>
+        <p id="sales">¿Sales de casa?</p>
+        <p id="para">¿Llevas paraguas?</p>
+        <p id="llevas">¿Llevas gorro?</p>
+        <p id="eres">¿Eres calvo?</p>
+        <p id="mojar">¿Te mojas el pelo?</p>
+    </div>
+
+</body>
+</html>
