@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Window</title>
+</head>
+<body>
+
+    <script>
+        let miVentana = window.open("http://localhost:63342/Cliente/contador.html?_ijt=4lg0ckgbdi59dhhdq00lqoenlt", "nombre", "width=500,height=500,top=200,left=300, resizable=yes");
+
+        function activar(miUrl){
+            miVentana.focus();
+            miVentana.location=miUrl;
+        }
+
+        function tamano(){
+            miVentana.resizeBy(500,600);
+            miVentana.focus();
+        }
+
+        function aumentar(){
+            miVentana.focus();
+            miVentana.contar();
+            miVentana.cuenta>=100?miVentana.close():void(0);
+        }
+    </script>
+
+    <button onclick="activar('https://www.elpais.es')">El país</button>
+    <button onclick="activar('https://www.eldiario.es')">El diario</button>
+    <button onclick="activar('https://www.amazon.es')">Amazon</button>
+
+    <button onclick="tamano()">MOVER</button>
+    <button onclick="aumentar()">+</button>
+
+</body>
+</html>

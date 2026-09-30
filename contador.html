@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contador</title>
+</head>
+<body>
+
+    <h1>Contador</h1>
+    <div id="contador"></div>
+
+    <script>
+        window.onload=contar;
+        let cuenta=0;
+        function contar(){
+            cuenta+=5;
+            contador.innerHTML=cuenta;
+            //cuenta>=100?window.close():void(0);
+        }
+    </script>
+
+</body>
+</html>
