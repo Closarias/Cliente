@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tamaño ventana</title>
+</head>
+<body>
+
+    <script>
+        /*window.onload=function(){
+            informacion.innerHTML="Anchura: "+window.innerWidth+"<br>Altura: "+window.innerHeight+"<br>Tamaño total: "+(window.innerWidth+window.innerHeight);
+        }*/
+
+        let contador = 0;
+        window.onresize=darTamano;
+        window.onload=darTamano;
+        function darTamano() {
+            informacion.innerHTML = "<p>Anchura: " + window.innerWidth;
+            informacion.innerHTML += "<p>Altura: " + window.innerHeight;
+            informacion.innerHTML += "<p>Cambios: " + contador;
+            contador++;
+
+            window.innerWidth < 600 ?
+                (alert("Te has pasado"), window.resizeTo(1200, innerHeight)) :
+                void(0);
+        }
+    </script>
+
+    <div id="informacion"></div>
+    <!-- <button onclick="darTamano()">DIME TAMAÑO</button> -->
+
+</body>
+</html>
