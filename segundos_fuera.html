@@ -6,9 +6,9 @@
     <style>
         div{
             border: black solid 1px;
-            align-items: center;
-            justify-content: center;
-            display: flex;
+            margin: auto;
+            text-align: center;
+            font-size: 50px;
         }
     </style>
 </head>
@@ -19,15 +19,19 @@
     <script>
         let a = 0;
 
-        //setInterval(miFuncion, 1000);
+        window.onload=function(){
+            miIntervalo=setInterval(miFuncion, 100);
+        }
+        function miFuncion() {
+            a>100?clearInterval(miIntervalo):(contador.innerHTML=a,a++);
+        }
 
-        window.onload=miFuncion;
-
+        /*window.onload=miFuncion;
         function miFuncion() {
             contador.innerHTML=a;
             a++;
             setTimeout(miFuncion, 1);
-        }
+        }*/
     </script>
 
 </body>

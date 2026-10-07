@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bolita</title>
+    <style>
+        div {
+            height: 30px;
+            width: 30px;
+            background-color: red;
+            border-radius: 100%;
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+        let posX = 0;
+        window.onload=function(){
+            setInterval(mover, 10);
+        }
+        function mover(){
+            if (posX < window.innerWidth - 30) {
+                bolita.style.left = posX+"px";
+                posX++;
+            }
+        }
+    </script>
+
+    <div id="bolita"></div>
+
+</body>
+</html>

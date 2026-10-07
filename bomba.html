@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bomba</title>
+    <style>
+        div{
+            width: 1100px;
+            border: 5px solid #000;
+            margin: auto;
+            font-size: 9em;
+            text-align: center;
+        }
+        #bomba{
+            color: red;
+        }
+        #horas, #minutos, #segundos {
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+<div id="bomba"><h1><span id="horas">0</span>:<span id="minutos">0</span>:<span id="segundos">0</span></h1></div>
+
+<script>
+
+    /*
+    OTRAS FORMAS DE PONERLO
+    let thora=0;
+    let tmin=59;
+    let tseg=50;
+
+    let ahora=1;
+    let amin=0;
+    let aseg=15;
+
+    let velocidad = 1000;
+
+    window.onload=contador;
+
+    function contador(){
+        horas.innerHTML=thora;
+        minuto.innerHTML=tmin;
+        segundos.innerHTML=tseg;
+     }
+     */
+
+    let a = 0;
+    let b = 0;
+    let c = 0;
+
+    window.onload = function () {
+        setInterval(miFuncion, 100);
+    }
+
+    function miFuncion() {
+
+        c>=59?(c=0,b++):c++;
+        b>=60?(b=0,a++):void(0);
+        a>=24?(a=0):void(0);
+
+        horas.innerHTML=a;
+        minutos.innerHTML=b;
+        segundos.innerHTML=c;
+
+        b==1&&c==30?bomba.innerHTML="BOOOOOM":void(0);
+    }
+</script>
+
+
+</body>
+</html>
