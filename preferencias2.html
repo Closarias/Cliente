@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Preferencias 2</title>
+</head>
+<body>
+    <form id="miFormulario" action="">
+        <label for="tamano">TAMAÑO</label>
+        <input type="number" id="tamano" name="tamano">
+        <input type="submit">
+        <p></p>
+    </form>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At dignissimos exercitationem inventore libero molestias nisi omnis praesentium soluta tempore ut.
+        Adipisci ex exercitationem explicabo hic magni minima modi nemo repudiandae.</p>
+
+    <script>
+        window.onload=inicio;
+
+        function inicio() {
+            miFormulario.onsubmit=gurdarFormulario;
+
+            localStorage.getItem("tamano2")?document.querySelector("p").innerHTML=localStorage.getItem("tamano2"):document.querySelector("p").innerHTML="No hay valor de guardado";
+        }
+
+        function gurdarFormulario() {
+            event.preventDefault();
+
+            localStorage.setItem("tamano2", tamano.value);
+        }
+    </script>
+</body>
+</html>

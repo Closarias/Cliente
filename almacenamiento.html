@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Almacenamiento local</title>
+    <style>
+        #formulario1{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="saludo"></div>
+    <form action="#" id="formulario1">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre">
+        <input type="submit">
+    </form>
+    <!--
+        <form action="#" id="formulario2" onsubmit="return enviar()">
+            <label for="nombre2">Nombre</label>
+            <input type="text" id="nombre2" name="nombre">
+            <input type="submit">
+        </form>
+    -->
+
+    <script>
+        window.onload=function (){
+            const miFormulario=document.forms[0];
+
+            if (
+                localStorage.getItem("nombre")
+            ){
+                saludo.innerHTML="Hola, "+ localStorage.getItem("nombre");
+            } else {
+                miFormulario.style.display="block";
+            }
+
+            miFormulario.addEventListener("submit",function() {
+                event.preventDefault();
+                //alert(nombre1.value) --> el id del input
+                saludo.innerHTML="Hola, "+nombre.value;
+                miFormulario.style.display="none";
+                sessionStorage.setItem("nombre", nombre.value); //Lo almaceno en la sesión
+                localStorage.setItem("nombre", nombre.value); // Lo almaceno localmente
+            });
+        }
+
+        /*No se hace la versión 2
+            function enviar(){
+                if (nombre2.value == "Macarrones"){
+                    return true;
+                }
+                else{
+                    alert("NO");
+                    return false;
+                }
+            }
+         */
+    </script>
+
+</body>
+</html>

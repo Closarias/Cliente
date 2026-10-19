@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cesta</title>
+    <style>
+        p{
+            border: 1px solid #000;
+            background-color: white;
+            width: 100px;
+            height: 50px;
+            border-radius: 25px;
+            padding: 20px;
+        }
+    </style>
+    <script>
+        let cesta=0;
+        let productos=[45.99,33.50,22.25];
+        window.addEventListener("load", function (){
+            localStorage.getItem("tuCesta")?(cesta=parseFloat(localStorage.getItem("tuCesta")),mostrar()):void(0);
+
+            producto1.addEventListener("click", function(){
+                cesta+=productos[0];
+                mostrar()
+            })
+            producto2.addEventListener("click", function(){
+                cesta+=productos[1];
+                mostrar()
+            })
+            producto3.addEventListener("click", function(){
+                cesta+=productos[2];
+                mostrar();
+            })
+            guardar.addEventListener("click", function(){
+                localStorage.setItem("tuCesta", cesta);
+                mostrar();
+            })
+            borrar.addEventListener("click", function(){
+               cesta>0?localStorage.removeItem("tuCesta"):alert("La cesta ya está vacía");
+               cesta=0;
+               mostrar();
+            });
+
+            function mostrar(){
+                cestaFinal.innerHTML="Tu cesta son "+cesta.toFixed(2)+"€";
+            }
+        })
+    </script>
+</head>
+<body>
+
+    <div id="cestaFinal"></div>
+    <p id="producto1">🧺 Jersey</p>
+    <p id="producto2">🧺 Falda</p>
+    <p id="producto3">🧺 Botas</p>
+    <p id="guardar">Guardar cesta</p>
+    <p id="borrar">Borrar cesta</p>
+
+</body>
+</html>

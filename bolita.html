@@ -4,13 +4,40 @@
     <meta charset="UTF-8">
     <title>Bolita</title>
     <style>
-        div {
+        body {
+            margin: 0;
+            background-color: darkgreen;
+            overflow: hidden;
+        }
+        .linea {
+            position: absolute;
+            width: 2px;
+            height: 100vh;
+            background-color: white;
+            left: 50%;
+            transform: translateX(-50%);
+            border-left: black solid 2px;
+            border-right: black solid 2px;
+        }
+        #bolita {
             height: 30px;
             width: 30px;
-            background-color: red;
-            border-radius: 100%;
+            background-color: orangered;
+            border-radius: 50%;
             position: absolute;
-            left: 0;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border: black solid 3px;
+            cursor: pointer;
+        }
+        #recuadro {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            background: white;
+            border: 2px solid black;
         }
     </style>
 </head>
@@ -18,18 +45,29 @@
 
     <script>
         let posX = 0;
+        let sentido=1;
+        let movimiento=true;
+        let velocidad=100;
+        let click=0;
         window.onload=function(){
-            setInterval(mover, 10);
+            let miIntervalo = setInterval(mover, velocidad);
+            bolita.onclick=function(){
+                velocidad-=10;
+                click++;
+                contador.innerHTML=click;
+                movimiento?(clearInterval(miIntervalo), movimiento=false):(miIntervalo = setInterval(mover, velocidad), movimiento=true);
+            }
         }
         function mover(){
-            if (posX < window.innerWidth - 30) {
-                bolita.style.left = posX+"px";
-                posX++;
-            }
+            bolita.style.left=posX+"px";
+            posX<window.innerWidth-30&&sentido==1?posX=posX+sentido:sentido=-1;
+            posX>0&&sentido==-1?posX=posX+sentido:sentido=1;
         }
     </script>
 
+    <div class="linea"></div>
     <div id="bolita"></div>
+    <p id="recuadro">Clicks: <span id="contador">0</span></p>
 
 </body>
 </html>

@@ -1,0 +1,28 @@
+form{
+    width: 80%;
+    margin: 10px auto;
+    padding: 10px;
+    display: flex;
+    flex-basis: 100px;
+    gap: 5px;
+    border: 1px solid #000;
+    align-items: center;
+}
+main{
+    width: 80%;
+    margin: 10px auto;
+    padding: 10px;
+    border: 1px solid #000;
+}
+
+option[value="Roboto"]{
+    font-family: Roboto;
+}
+
+option[value="Merriweather"]{
+    font-family: Merriweather;
+}
+
+option[value="Lumanosimo"]{
+    font-family: Lumanosimo;
+}

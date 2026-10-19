@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DVD</title>
+
+    <style>
+        body {
+            margin: 0;
+            background-color: black;
+        }
+
+        #dvd {
+            position: absolute;
+            color: blue;
+            text-align: center;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="dvd">DVD</div>
+
+    <script>
+        let posX=0;
+        let posY=0;
+
+        let sentidoX=1;
+        let sentidoY=1;
+
+        let velocidad=10;
+
+        let color;
+
+        window.onload=function(){
+            setInterval(mover,velocidad);
+        }
+
+        function mover(){
+            dvd.style.left=posX+"px";
+            dvd.style.top=posY+"px";
+            dvd.style.color="#"+color;
+
+            posX=posX+sentidoX;
+            posY=posY+sentidoY;
+
+            posX==innerWidth-65&&sentidoX==1?(sentidoX=-1,cambiarColor()):void(0);
+            posX==0&&sentidoX==-1?(sentidoX=1,cambiarColor()):void(0);
+
+            posY==innerHeight-35&&sentidoY==1?(sentidoY=-1,cambiarColor()):void(0);
+            posY==0&&sentidoY==-1?(sentidoY=1,cambiarColor()):void(0);
+        }
+
+        function cambiarColor(){
+            color=parseInt(Math.random()*(256*256*256)).toString(16);
+        }
+    </script>
+</body>
+</html>
