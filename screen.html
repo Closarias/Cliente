@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Screen</title>
+</head>
+<body>
+
+    <div></div>
+
+    <script>
+        window.addEventListener("load", function(){
+            document.querySelector("div").innerHTML="<p>ALTURA: "+screen.height+"</p>";
+            document.querySelector("div").innerHTML+="<p>ALTURA DISPONIBLE: "+screen.availHeight+"</p>";
+            document.querySelector("div").innerHTML+="<p>ANCHURA: "+screen.width+"</p>";
+            document.querySelector("div").innerHTML+="<p>ANCHURA DISPONIBLE: "+screen.availWidth+"</p>";
+            document.querySelector("div").innerHTML+="<p>PROFUNDIDAD COLOR: "+screen.colorDepth+"</p>";
+            document.querySelector("div").innerHTML+="<p>PROFUNDIDAD PÍXELES: "+screen.pixelDepth+"</p>";
+            document.querySelector("div").innerHTML+="<p>ORIENTACIÓN: "+screen.orientation.type+"</p>";
+
+            screen.orientation.lock("landscape")
+                .then(()=>{alert("bloqueado")})
+                .catch((error)=>console.log(error.message));
+        });
+    </script>
+
+</body>
+</html>

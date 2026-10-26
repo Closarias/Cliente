@@ -37,6 +37,11 @@
                 valor!=0?moverse(urls[valor]):void(0);
             };
 
+            destino.onchange=function(){
+                mover=destino.options[destino.options.selectedIndex].value;
+                mover!="nada"?historial(num):void(0);
+            };
+
             document.querySelectorAll("button")[0].onclick=function(){
                 history.back();
             };
@@ -45,14 +50,18 @@
                 history.forward();
             };
 
-            destino.onchange=function(){
-                mover=destino.options[destino.options.selectedIndex].value;
-                mover!="nada"?history.go(mover):void(0);
-            };
+            window.addEventListener("beforeunload", function(){
+                event.preventDefault();
+                event.returnValue="\\o/";
+            });
+
         }
 
         function moverse(url){
             window.location=url;
+        }
+        function historial(num){
+            history.go(mover)
         }
     </script>
 
