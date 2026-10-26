@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Tiendas</title>
+    <style>
+        body{
+            background: #222;
+        }
+        div{
+            width: 400px;
+            margin: auto;
+            padding: 15px;
+            background: #8b6b43;
+            border: solid 8px #574126;
+            border-radius: 25px;
+            display: flex;
+            justify-content: center;
+        }
+        a{
+            text-decoration: none;
+            color: white;
+            margin: 10px;
+            border: solid 4px #574126;
+            border-radius: 25px;
+            padding: 5px;
+        }
+        iframe{
+            display: block;
+            width: 1000px;
+            height: 600px;
+            margin: auto;
+            border: solid 15px #574126;
+            border-radius: 25px;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <a href="#wikipedia">Wikipedia</a>
+        <a href="#eldiario">eldiario</a>
+        <a href="#elpais">elpais</a>
+        <a href="#marca">Marca</a>
+    </div>
+    <br><br>
+    <iframe width="800" height="500"></iframe>
+
+    <script>
+        const tiendas = {
+            "#wikipedia": "https://es.wikipedia.org/wiki",
+            "#eldiario": "https://www.eldiario.es/",
+            "#elpais": "https://elpais.com/",
+            "#marca": "https://www.marca.com/"
+        };
+
+        window.addEventListener("hashchange", function() {
+            if (tiendas[location.hash]) {
+                frames[0].location.href = tiendas[location.hash];
+            }
+        });
+    </script>
+</body>
+</html>
