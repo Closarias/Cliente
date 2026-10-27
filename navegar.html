@@ -30,6 +30,8 @@
         const urls=["","https://www.cdmfp.es","https://www.elpais.es","https://www.google.es"];
 
         window.onload=function(){
+            history.pushState({page_id: 1}, "título", "navigator.html");
+
             document.querySelector("span").innerHTML=history.length;
 
             navegar.onchange=function(){
