@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload=function(){
+            document.querySelectorAll("button")[0].onclick=codificar;
+            document.querySelectorAll("button")[1].onclick=decodificar;
+        }
+
+        function codificar(){
+            let clave=Math.trunc(Math.random()*1000);
+
+            codificado.innerHTML=String.fromCharCode(clave);
+
+            for (let i=0;i<texto.value.length;i++){
+                codigo=texto.value.charCodeAt(i);
+                codificado.innerHTML+=String.fromCharCode(codigo+clave);
+            }
+        }
+
+        function decodificar(){
+            let clave2=texto.value.charCodeAt(0);
+
+            for (let i=1;i<texto.value.length;i++){
+                codigo=texto.value.charCodeAt(i);
+                codificado.innerHTML+=String.fromCharCode(codigo-clave2);
+            }
+        }
+    </script>
+    <style>
+        textarea{
+            width: 300px;
+            height: 200px;
+            margin: 20px;
+        }
+        fieldset{
+            width: 700px;
+            margin: auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <fieldset>
+        <textarea name="texto" id="texto"></textarea>
+        <textarea name="codificado" id="codificado"></textarea>
+        <button>Codificar</button>
+        <button>Decodificar</button>
+    </fieldset>
+
+</body>
+</html>

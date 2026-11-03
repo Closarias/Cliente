@@ -6,7 +6,9 @@ window.addEventListener('load', function(){
         textoLargo=document.querySelector("p").innerHTML;
         terminoBusqueda=termino.value;
 
-        nuevoTexto=textoLargo.replace(terminoBusqueda, "<mark>"+terminoBusqueda+"</mark>");
+        const expresion=new RegExp(terminoBusqueda, 'g');
+
+        nuevoTexto=textoLargo.replace(expresion, "<mark>"+terminoBusqueda+"</mark>");
 
         document.querySelector("p").innerHTML=nuevoTexto;
     })

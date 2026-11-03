@@ -1,0 +1,35 @@
+main {
+    display: flex;
+    align-items: flex-start;
+}
+section {
+    width: 50%;
+}
+section:nth-child(1){
+    border-right: 1px solid black;
+}
+p{
+    display: flex;
+    border-bottom: 1px solid black;
+    padding: 10px;
+}
+span, button{
+    flex-basis: 25%;
+}
+
+button{
+    background-color: white;
+    border: 1px solid black;
+    width: 100px;
+    height: 35px;
+    border-radius: 25px;
+}
+button:hover{
+    background-color: red;
+    color: white;
+}
+h2{
+    font-size: 18px;
+    text-align: right;
+
+}
