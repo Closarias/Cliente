@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Navegar</title>
+</head>
+<body>
+
+    <label for="navegar"></label>
+    <select name="navegar" id="navegar">
+        <option value="0">â¬‡ï¸</option>
+        <option value="1">CDMFP</option>
+        <option value="2">EL PAÃS</option>
+        <option value="3">GOOGLE</option>
+    </select>
+    <button>â¬…ï¸</button>
+    <span></span>
+    <button>âž¡ï¸</button>
+
+    <select name="destino" id="destino">
+        <option value="nada">Elige</option>
+        <option value="-2">-2</option>
+        <option value="-1">-1</option>
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+    </select>
+
+    <script>
+        const urls=["","https://www.cdmfp.es","https://www.elpais.es","https://www.google.es"];
+
+        window.onload=function(){
+            history.pushState({page_id: 1}, "tÃ­tulo", "navigator.html");
+
+            document.querySelector("span").innerHTML=history.length;
+
+            navegar.onchange=function(){
+                valor=navegar.options[navegar.options.selectedIndex].value;
+                valor!=0?moverse(urls[valor]):void(0);
+            };
+
+            destino.onchange=function(){
+                mover=destino.options[destino.options.selectedIndex].value;
+                mover!="nada"?historial(num):void(0);
+            };
+
+            document.querySelectorAll("button")[0].onclick=function(){
+                history.back();
+            };
+
+            document.querySelectorAll("button")[1].onclick=function(){
+                history.forward();
+            };
+
+            window.addEventListener("beforeunload", function(){
+                event.preventDefault();
+                event.returnValue="\\o/";
+            });
+
+        }
+
+        function moverse(url){
+            window.location=url;
+        }
+        function historial(num){
+            history.go(mover)
+        }
+    </script>
+
+</body>
+</html>

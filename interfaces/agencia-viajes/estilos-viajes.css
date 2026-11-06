@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Redaction+10:ital,wght@0,400;0,700;1,400&display=swap');
+:root{
+    /*color-scheme: dark;*/
+    --colorFondo: crimson;
+    --colorTexto: bisque;
+    --colorSecundario: maroon;
+}
+body{
+    font-family: "Redaction";
+    background-color: var(--colorFondo);
+    color: var(--colorTexto);
+    padding: clamp(5%, 0.3vw, 10%);
+    margin-top: 0;
+}
+h1{
+    font-family: "Bookman Old Style";
+    font-size: clamp(2rem, 1rem + 3vw, 4rem);
+    max-width: 6ch;
+}
+h2{
+    font-family: "Mistral";
+    font-size: clamp(2rem, 1rem + 2vw, 3rem);
+    margin: 0 0 10px 0;
+}
+p{
+    font-size: clamp(1rem, 0.5rem + 1vw, 2rem);
+}
+section{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 29rem), 1fr));
+    gap: clamp(2rem, 0.5vw, 4rem);
+}
+img{
+    max-width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border-radius: 25px 25px 0 0;
+    vertical-align: bottom;
+}
+div{
+    background-color: var(--colorSecundario);
+    padding: clamp(10%, 0.3vw, 15%);
+}
+span{
+    font-size: clamp(0.7rem, 0.2rem + 0.5vw, 1rem);
+    background-color: var(--colorFondo);
+    border-radius: 10px;
+    padding: 10px;
+}
+a{
+    display: block;
+    text-align: right;
+    font-size: clamp(0.7rem, 0.2rem + 0.5vw, 1rem);
+    color: var(--colorTexto);
+    text-decoration: none;
+}
+footer{
+    background-color: var(--colorSecundario);
+    font-size: clamp(1rem, 0.5rem + 1vw, 1.5rem);
+    text-align: center;
+    padding: 10px;
+}

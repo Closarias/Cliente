@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cita dentista</title>
+    <style>
+        body{
+            width: 70%;
+            border: 3px solid black;
+            padding: 20px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        div{
+            margin-top: 10px;
+            background-color: aliceblue;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Dentista</h1>
+    <form action="#">
+        <label for="fecha">Elige el día</label>
+        <input type="date" id="cita">
+        <input type="submit" value="Cita">
+    </form>
+    <div id="respuesta"></div>
+
+    <script>
+        window.onload = function(){
+            document.forms[0].onsubmit=function (){
+                event.preventDefault();
+
+                let hoy = new Date();
+                let fecha = new Date(cita.value);
+
+                fecha<hoy&&(fecha.getDay()>0&&fecha.getDay()<6)?mensaje="Fecha inválida":mensaje=`Cita confirmada: ${new Date(cita.value).toLocaleDateString("es",{weekday: "long", month: "long", year: "numeric", day: "numeric"})}`
+
+                respuesta.innerHTML = mensaje;
+            }
+        }
+    </script>
+
+</body>
+</html>

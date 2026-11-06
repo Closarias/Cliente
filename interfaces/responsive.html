@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Responsive</title>
+    <style>
+        :root{
+            font-size: 16px;
+            color: gray;
+            --color1: red; /*variables de color y tamaño*/
+            --color2: blue;
+            --color3: green;
+        }
+        h1{
+            font-size: clamp(2rem, 5vw, 4rem);
+            color: var(--color1); /*metodo var(--nombreVariabe)*/
+        }
+        p{
+            color: var(--color2);
+            font-size: clamp(1rem, 6vw, 1.5rem);
+        }
+        div{
+            display: inline-block;
+            object-fit: fill;
+            width: 33%;
+            height: 600px;
+            overflow: hidden;
+            border: 1px solid black;
+        }
+        img{
+            vertical-align: top;
+            width: 100%;
+            height: 100%;
+            aspect-ratio: 1/1;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Hola</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad dolore enim harum nisi quae, quis. Accusamus architecto beatae cumque dignissimos dolores impedit iusto nam, porro sit velit? Culpa delectus distinctio dolore ea eos, error et facere harum incidunt laudantium minus nemo non nulla obcaecati perspiciatis quae quaerat quis sit tempora tempore tenetur vel vitae voluptas. Adipisci aperiam blanditiis deserunt dignissimos, eos fugiat id in, iure maiores minima mollitia optio quisquam voluptatibus? Architecto consectetur consequatur cum dicta est explicabo fugiat, incidunt ipsa laborum, nemo nostrum placeat quae quibusdam, quisquam sequi soluta tenetur ullam. Asperiores dolorum non rerum velit. Accusamus, doloremque?</p>
+
+    <div>
+        <img src="https://media.gametora.com/umamusume/supports/full/small/20048.png" alt="oguri 1">
+    </div>
+    <div>
+        <img src="https://media.gametora.com/umamusume/supports/full/small/30146.png" alt="oguri 2">
+    </div>
+    <div>
+        <img src="https://media.gametora.com/umamusume/supports/full/small/30024.png" alt="oguri 3">
+    </div>
+
+    <picture>
+        <source srcset="https://media.gametora.com/umamusume/supports/full/small/30111.png" media="(min-width:750px) and (max-width:1024px)">
+        <source srcset="https://media.gametora.com/umamusume/supports/full/small/30058.png" media="(min-width:150px) and (max-width:750px)">
+        <source srcset="https://media.gametora.com/umamusume/supports/full/small/30275.png" media="(min-width:10px) and (max-width:150px)">
+        <img src="https://media.gametora.com/umamusume/supports/full/small/20047.png" alt="teio" title="teio">
+    </picture>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        label{
+            display: block;
+        }
+        button{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <form action="#">
+        <label for="texto">Texto</label>
+        <textarea name="texto" id="texto" cols="100" rows="20"></textarea>
+        <button><b>Cositas</b></button>
+    </form>
+
+    <script>
+        window.addEventListener('load', function () {
+            document.querySelector("button").addEventListener('click', function () {
+                event.preventDefault();
+
+                let nuevoContenido = texto.value.trim();
+                nuevoContenido = nuevoContenido.toLowerCase();
+                nuevoContenido = nuevoContenido.replace("él", "PROFE")
+
+                let nuevoNuevoContenido = nuevoContenido.padStart(nuevoContenido.length+1, "[")
+                nuevoNuevoContenido = nuevoNuevoContenido.padEnd(nuevoNuevoContenido.length+1, "]")
+                texto.value = texto.value.concat(nuevoNuevoContenido, "macarrones");
+
+                nuevoContenido.startsWith("PROFE")?alert("está"):alert("no está");
+            })
+        })
+    </script>
+
+</body>
+</html>

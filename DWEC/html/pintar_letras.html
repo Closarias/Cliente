@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script defer>
+      let indice=0;
+
+      window.addEventListener('load', function() {
+        document.forms[0].addEventListener("submit", escribir)
+      })
+
+      function escribir() {
+        event.preventDefault();
+        document.querySelectorAll("p")[1].innerHTML=String.fromCharCode(codigo.value);
+        intervalo=setInterval(escribir2, 500);
+      }
+
+      function escribir2() {
+        indice<=palabra.value.length?document.querySelectorAll("p")[0].innerHTML=palabra.value.charAt(indice):clearInterval(intervalo);
+        indice++;
+      }
+    </script>
+    <style>
+      p{
+        text-align: center;
+        color: red;
+        font-size: 50px;
+      }
+    </style>
+</head>
+<body>
+
+  <form action="#">
+    <label for="palabra">Palabra</label>
+    <input type="text" id="palabra" name="palabra">
+    <label for="codigo">CÃ³digo</label>
+    <input type="text" id="codigo" name="codigo">
+    <input type="submit">
+  </form>
+  <p></p>
+  <p></p>
+</body>
+</html>
