@@ -8,8 +8,10 @@
 
     <script>
         fecha = new Date().toLocaleDateString("es",{weekday: "long", month: "long", year: "numeric", day: "numeric"});
-        alert(fecha.getFullYear())
+        //alert(fecha.getFullYear())
         alert(Date.now())
+
+        console.log(Math.trunc(Date.now()/1000/60/60/24/365) + " años");
     </script>
 
 </body>
