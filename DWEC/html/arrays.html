@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Arrays</title>
+</head>
+<body>
+
+    <div></div>
+
+    <script>
+        let miLista = ["Suspenso", "Aprobado", "Notable", "Sobresaliente"];
+
+        let otro = new Array(1, 2, 3, 4, 5);
+
+        let cadena = "1, 2, 3, 4, 5";
+        let miArray = cadena.split(",");
+
+        /*
+        document.querySelector("div").innerHTML+=`<p>${miArray.length}</p>`
+        document.querySelector("div").innerHTML+=`<p>${miArray.pop()}</p>`
+        document.querySelector("div").innerHTML+=`<p>${miArray.length}</p>`
+        document.querySelector("div").innerHTML+=`<p>${miArray.shift()}</p>`
+        miArray.push("texto");
+        document.querySelector("div").innerHTML+=`<p>${miArray[miArray.length-1]}</p>`
+        miArray.unshift("primero");
+        document.querySelector("div").innerHTML+=`<p>${miArray[0]}</p>`
+         */
+
+        document.querySelector("div").innerHTML+=`<p>${miLista[0]}</p>`
+        miLista.reverse();
+        document.querySelector("div").innerHTML+=`<p>${miLista[0]}</p>`
+        miLista.sort();
+        document.querySelector("div").innerHTML+=`<p>${miLista[0]}</p>`
+
+        console.log(miLista.slice(2,3));
+        console.log(miLista.length);
+        console.log(miLista.splice(2,3));
+        console.log(miLista.length);
+
+        let pepe = miArray.concat(miLista);
+        console.log(pepe.length);
+    </script>
+
+</body>
+</html>

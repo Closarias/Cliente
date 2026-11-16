@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array</title>
+</head>
+<body>
+
+    <form action="#">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" placeholder="nombre">
+        <input type="submit">
+    </form>
+
+    <div></div>
+
+    <script>
+        let nombres = new Array();
+
+        window.addEventListener("load", function(){
+            let capa = document.querySelector("div");
+            document.forms[0].onsubmit = () => {
+                event.preventDefault();
+
+                nombres.push(nombre.value);
+                nombres.sort();
+
+                /*for (indice in nombres) {
+                    console.log(`${indice} . ${nombres[indice]}`);
+                }*/
+
+                /*for (valor of nombres) {
+                    console.log(`${valor}`);
+                }*/
+
+                /*nombres.forEach(function (valor, indice){
+                    capa.innerHTML+=`<p>${indice} . ${valor}</p>`;
+                })*/
+
+                nombres.forEach((valor, indice)=>{
+                    capa.innerHTML+=`<p>${indice} . ${valor}</p>`;
+                })
+            }
+        })
+    </script>
+
+</body>
+</html>
