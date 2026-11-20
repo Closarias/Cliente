@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Math</title>
+    <style>
+        body {
+            width: 800px;
+            margin: auto;
+        }
+        input, label, select {
+            display: inline-block;
+            width: 50%;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <form action="">
+        <label for="">Valor</label>
+        <input type="text" id="valor" name="valor">
+        <label for="operacion">Operacion</label>
+        <select name="operacion" id="operacion">
+            <option value="0">ELIGE</option>
+            <option value="1">FLOOR</option>
+            <option value="2">TRUNC</option>
+            <option value="3">CEIL</option>
+        </select>
+        <label for="transformar">Transforma</label>
+        <input type="text" id="transformar" name="transformar">
+    </form>
+
+    <div></div>
+
+    <script>
+        window.addEventListener("load", function() {
+            transformar.onblur = () => /*isNaN(transformar.value)?alert("Escribe un número"):alert(parseInt(transformar.value));*/
+
+            Number.isInteger(transformar.value)?alert("es entero"):alert("no es entero");
+
+            operacion.onchange = function() {
+                switch (operacion.options[operacion.selectedIndex].value) {
+                    case "1": document.querySelector("div").innerHTML=Math.floor(valor.value);
+                    break;
+                    case "2": document.querySelector("div").innerHTML=Math.trunc(valor.value);
+                    break;
+                    case "3": document.querySelector("div").innerHTML=Math.ceil(valor.value);
+                    break;
+                    default: document.querySelector("div").innerHTML="";
+                    break;
+                }
+            }
+        })
+
+        function comprobar (elemento) {
+            return isNaN(elemento);
+        }
+    </script>
+
+</body>
+</html>

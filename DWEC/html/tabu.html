@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulacro de Examen Juego de Palabras</title>
+    <style>
+        form {
+            width: 500px;
+            margin: 20px auto;
+        }
+        p {
+            color: red;
+            text-align: center;
+            font-weight: bold;
+        }
+        textarea, input, button {
+            display: block;
+            width: 100%;
+            height: 200%;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<form action="#">
+    <h1>Describe el término propuesto sin usar las 3 palabras prohibidadas</h1>
+    <p></p>
+    <textarea name="descripcion" id="descripcion"></textarea>
+    <input type="submit" value="Comprobar"></input>
+</form>
+<form action="#">
+    <label for="termino">Nuevo Término</label>
+    <input type="text" name="termino" id="termino">
+    <textarea name="prohibidas" id="prohibidas"></textarea>
+    <input type="submit" value="Añadir">
+    <form action="#">
+        <input type="submit" value="Mostrar palabras">
+    </form>
+</form>
+<script>
+    //Array en ele que el primer elemento es el término a definir y lo demás las palabras prohibidas
+    let palabras=[["perro", "animal", "ladrar", "pelo"],["profesor","clase","enseñar","alumno"]];
+    window.onload=function(){
+        mostrarPalabra()
+        aleatorio=Math.trunc(Math.random()*palabras.length);
+        document.querySelector("p").innerHTML=palabras[aleatorio][0];
+        document.forms[0].onsubmit=function(){
+            errores=[];
+            event.preventDefault()
+            texto=descripcion.value.toLowerCase();
+            for(let i=1;i<palabras[aleatorio].length;i++){
+                texto.indexOf(palabras[aleatorio][i])>=0?errores.push(palabras[aleatorio][i]):void(0);
+            }
+            errores.length==0?alert("Genial, has ganado"):alert("Has usado las siguientes palabras prohibidas "+errores.join());
+        }
+        document.forms[1].onsubmit=function(){
+            event.preventDefault();
+            nuevasPalabras=prohibidas.value.split(",");
+            nuevasPalabras.unshift(termino.value);
+            palabras.push(nuevasPalabras);
+        }
+        document.forms[2].onsubmit=mostrarPalabra;
+
+    }
+    function mostrarPalabra(){
+        aleatorio=Math.floor(Math.random()*palabras.length);
+        document.querySelector("p").innerHTML=palabras[aleatorio][0];
+    }
+</script>
+</body>
+</html>

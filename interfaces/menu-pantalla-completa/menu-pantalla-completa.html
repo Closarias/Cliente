@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú pantalla completa</title>
+    <style>
+        main{
+            width: 80vw;
+            margin:20px auto;
+            background-color:#f9ece5;
+            border-radius:2vw;
+            height: clamp(500px, 50vh, 1000px);
+            border:1px solid #000;
+            box-shadow: 5px 5px 5px #000;
+            position:relative;
+            overflow: hidden;
+        }
+
+        input[type="radio"]{
+            display:none;
+        }
+
+        main>label{
+            position:absolute;
+            top:10px;
+            left:10px;
+            background-color:#f10b0b;
+            display: flex;
+            width: clamp(100px, 10%, 500px);
+            height:clamp(30px, 5vh, 200px);
+            color:white;
+            text-align:center;
+            border-radius: 999px;
+            flex-direction:column;
+            justify-content:center;
+        }
+
+        nav{
+            width:100%;
+            height:100%;
+            background-color: #9c2113;
+            position:absolute;
+            top:0;
+            left:0;
+            border-radius:2vw;
+            clip-path:circle(0% at 20px 20px); /*Recortarlo en circulo*/
+            transition:clip-path 1s ease;
+        }
+
+        input:checked~nav{
+            clip-path:circle(200% at 20px 20px);
+        }
+
+        span{
+            position:absolute;
+            top:10px;
+            right:10px;
+            width:75px;
+
+            height:30px;
+            padding-top:10px;
+            text-align:center;
+            color:white;
+            border:1px solid #fff;
+            border-radius:15px;
+        }
+
+        nav:has(:checked){  /*Has detecta el movimiento de los hijos  */
+            clip-path:circle(0% at 20px 20px);
+        }
+
+        li {
+            visibility: hidden;
+            position: absolute;
+            top: calc(50px*var(--ref));
+            background-color: white;
+            border-radius: 999px;
+            width: clamp(150px, 15vw, 500px);
+            height: 70px;
+            list-style: none;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: all 0.5s ease, transform 1s ease;
+            transition-delay: calc(0.3s + var(--ref) * 0.1s);
+        }
+
+        input:checked~nav li {
+            visibility: visible;
+            transform: translateY(20px);
+        }
+
+        main p {
+            margin: auto;
+            width: 70%;
+            height: 40%;
+            overflow: scroll;
+            scrollbar-color: #f9ece5 transparent;
+            display: none;
+        }
+
+        input:not(:checked)~div p:target {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<main>
+    <input type="radio" id="menu" name="menu">
+    <label for="menu">Menú</label>
+
+    <nav>
+            <span>
+                <input type="radio" id="cerrar" name="menu">
+                <label for="cerrar">Cerrar</label>
+            </span>
+        <ol>
+            <li style="--ref:1"><input type="radio" id="inicio" name="menu"><label for="inicio" onclick="document.location.href='#opcion1'">Inicio</label></li>
+            <li style="--ref:3"><input type="radio" id="contacto" name="menu"><label for="contacto" onclick="document.location.href='#opcion2'">Contacto</label></li>
+            <li style="--ref:5"><input type="radio" id="proyectos" name="menu"><label for="proyectos" onclick="document.location.href='#opcion3'">Proyectos</label></li>
+            <li style="--ref:7"><input type="radio" id="practicas" name="menu"><label for="practicas" onclick="document.location.href='#opcion4'">Prácticas</label></li>
+        </ol>
+    </nav>
+
+    <div>
+        <p id="opcion1">
+            Primera opción, consectetur adipisicing elit. Deleniti doloribus eaque hic illum ipsum modi pariatur quibusdam unde? Autem doloribus earum eos eum laudantium obcaecati officia sed ullam! Iusto, numquam. Ab asperiores cum dolore dolorem facilis fuga illo in iste laboriosam magni, non perspiciatis quasi quisquam, sapiente voluptates? Ab accusamus fugit ipsum placeat possimus qui soluta! Beatae esse reiciendis rem! Amet, error facilis nemo neque quo sequi sunt temporibus voluptatibus! Architecto atque cupiditate earum magnam molestiae neque nulla quibusdam temporibus vero voluptatibus. Debitis doloribus pariatur quisquam saepe, sint soluta voluptatem. Aperiam beatae commodi exercitationem fuga, illo illum laborum neque, optio pariatur reprehenderit sed, veniam voluptatibus voluptatum. Assumenda distinctio eligendi esse fugiat labore modi repellat sed. Corporis iure tempora voluptatum. Tempora. Asperiores consequuntur delectus dolorem eius et inventore magni modi, omnis, perspiciatis quidem tempore unde vel voluptates. Debitis, ipsa unde. Animi dolorem error in minus provident repellendus repudiandae sunt tenetur ullam. Alias, blanditiis ex facilis id laudantium minima numquam porro quia ratione repellat? Ab assumenda distinctio, dolorum et eveniet fuga illum ipsum libero nisi non odit, sequi sunt vel. Beatae, nobis! Accusamus animi commodi consectetur corporis deserunt dignissimos dolorem eveniet, ex harum, illum itaque omnis optio quidem, rem repellat totam vel voluptatem? Asperiores debitis dolorem eius illo mollitia nobis obcaecati, sint! Accusamus ad aliquid amet, asperiores beatae cupiditate delectus dicta dignissimos est harum illum impedit incidunt nobis odio officiis, pariatur porro praesentium provident reiciendis repellat saepe tenetur veritatis voluptate. Impedit, perferendis? Adipisci aperiam architecto assumenda consectetur cupiditate deserunt dolore ducimus eius eligendi ex illum incidunt ipsum laborum, libero necessitatibus officiis possimus qui quia recusandae repudiandae rerum, sunt veritatis voluptatem voluptatibus voluptatum. At aut autem, beatae commodi cum deserunt eligendi est eum excepturi hic id ipsam magnam nisi reprehenderit rerum sunt ut vitae. A adipisci eligendi labore ratione? Eveniet labore molestiae voluptates.
+        </p>
+        <p id="opcion2">
+            Segunda opción, consectetur adipisicing elit. Deleniti doloribus eaque hic illum ipsum modi pariatur quibusdam unde? Autem doloribus earum eos eum laudantium obcaecati officia sed ullam! Iusto, numquam. Ab asperiores cum dolore dolorem facilis fuga illo in iste laboriosam magni, non perspiciatis quasi quisquam, sapiente voluptates? Ab accusamus fugit ipsum placeat possimus qui soluta! Beatae esse reiciendis rem! Amet, error facilis nemo neque quo sequi sunt temporibus voluptatibus! Architecto atque cupiditate earum magnam molestiae neque nulla quibusdam temporibus vero voluptatibus. Debitis doloribus pariatur quisquam saepe, sint soluta voluptatem. Aperiam beatae commodi exercitationem fuga, illo illum laborum neque, optio pariatur reprehenderit sed, veniam voluptatibus voluptatum. Assumenda distinctio eligendi esse fugiat labore modi repellat sed. Corporis iure tempora voluptatum. Tempora. Asperiores consequuntur delectus dolorem eius et inventore magni modi, omnis, perspiciatis quidem tempore unde vel voluptates. Debitis, ipsa unde. Animi dolorem error in minus provident repellendus repudiandae sunt tenetur ullam. Alias, blanditiis ex facilis id laudantium minima numquam porro quia ratione repellat? Ab assumenda distinctio, dolorum et eveniet fuga illum ipsum libero nisi non odit, sequi sunt vel. Beatae, nobis! Accusamus animi commodi consectetur corporis deserunt dignissimos dolorem eveniet, ex harum, illum itaque omnis optio quidem, rem repellat totam vel voluptatem? Asperiores debitis dolorem eius illo mollitia nobis obcaecati, sint! Accusamus ad aliquid amet, asperiores beatae cupiditate delectus dicta dignissimos est harum illum impedit incidunt nobis odio officiis, pariatur porro praesentium provident reiciendis repellat saepe tenetur veritatis voluptate. Impedit, perferendis? Adipisci aperiam architecto assumenda consectetur cupiditate deserunt dolore ducimus eius eligendi ex illum incidunt ipsum laborum, libero necessitatibus officiis possimus qui quia recusandae repudiandae rerum, sunt veritatis voluptatem voluptatibus voluptatum. At aut autem, beatae commodi cum deserunt eligendi est eum excepturi hic id ipsam magnam nisi reprehenderit rerum sunt ut vitae. A adipisci eligendi labore ratione? Eveniet labore molestiae voluptates.
+        </p>
+        <p id="opcion3">
+            Tercera opción, consectetur adipisicing elit. Deleniti doloribus eaque hic illum ipsum modi pariatur quibusdam unde? Autem doloribus earum eos eum laudantium obcaecati officia sed ullam! Iusto, numquam. Ab asperiores cum dolore dolorem facilis fuga illo in iste laboriosam magni, non perspiciatis quasi quisquam, sapiente voluptates? Ab accusamus fugit ipsum placeat possimus qui soluta! Beatae esse reiciendis rem! Amet, error facilis nemo neque quo sequi sunt temporibus voluptatibus! Architecto atque cupiditate earum magnam molestiae neque nulla quibusdam temporibus vero voluptatibus. Debitis doloribus pariatur quisquam saepe, sint soluta voluptatem. Aperiam beatae commodi exercitationem fuga, illo illum laborum neque, optio pariatur reprehenderit sed, veniam voluptatibus voluptatum. Assumenda distinctio eligendi esse fugiat labore modi repellat sed. Corporis iure tempora voluptatum. Tempora. Asperiores consequuntur delectus dolorem eius et inventore magni modi, omnis, perspiciatis quidem tempore unde vel voluptates. Debitis, ipsa unde. Animi dolorem error in minus provident repellendus repudiandae sunt tenetur ullam. Alias, blanditiis ex facilis id laudantium minima numquam porro quia ratione repellat? Ab assumenda distinctio, dolorum et eveniet fuga illum ipsum libero nisi non odit, sequi sunt vel. Beatae, nobis! Accusamus animi commodi consectetur corporis deserunt dignissimos dolorem eveniet, ex harum, illum itaque omnis optio quidem, rem repellat totam vel voluptatem? Asperiores debitis dolorem eius illo mollitia nobis obcaecati, sint! Accusamus ad aliquid amet, asperiores beatae cupiditate delectus dicta dignissimos est harum illum impedit incidunt nobis odio officiis, pariatur porro praesentium provident reiciendis repellat saepe tenetur veritatis voluptate. Impedit, perferendis? Adipisci aperiam architecto assumenda consectetur cupiditate deserunt dolore ducimus eius eligendi ex illum incidunt ipsum laborum, libero necessitatibus officiis possimus qui quia recusandae repudiandae rerum, sunt veritatis voluptatem voluptatibus voluptatum. At aut autem, beatae commodi cum deserunt eligendi est eum excepturi hic id ipsam magnam nisi reprehenderit rerum sunt ut vitae. A adipisci eligendi labore ratione? Eveniet labore molestiae voluptates.
+        </p>
+        <p id="opcion4">
+            Cuarta opción, consectetur adipisicing elit. Deleniti doloribus eaque hic illum ipsum modi pariatur quibusdam unde? Autem doloribus earum eos eum laudantium obcaecati officia sed ullam! Iusto, numquam. Ab asperiores cum dolore dolorem facilis fuga illo in iste laboriosam magni, non perspiciatis quasi quisquam, sapiente voluptates? Ab accusamus fugit ipsum placeat possimus qui soluta! Beatae esse reiciendis rem! Amet, error facilis nemo neque quo sequi sunt temporibus voluptatibus! Architecto atque cupiditate earum magnam molestiae neque nulla quibusdam temporibus vero voluptatibus. Debitis doloribus pariatur quisquam saepe, sint soluta voluptatem. Aperiam beatae commodi exercitationem fuga, illo illum laborum neque, optio pariatur reprehenderit sed, veniam voluptatibus voluptatum. Assumenda distinctio eligendi esse fugiat labore modi repellat sed. Corporis iure tempora voluptatum. Tempora. Asperiores consequuntur delectus dolorem eius et inventore magni modi, omnis, perspiciatis quidem tempore unde vel voluptates. Debitis, ipsa unde. Animi dolorem error in minus provident repellendus repudiandae sunt tenetur ullam. Alias, blanditiis ex facilis id laudantium minima numquam porro quia ratione repellat? Ab assumenda distinctio, dolorum et eveniet fuga illum ipsum libero nisi non odit, sequi sunt vel. Beatae, nobis! Accusamus animi commodi consectetur corporis deserunt dignissimos dolorem eveniet, ex harum, illum itaque omnis optio quidem, rem repellat totam vel voluptatem? Asperiores debitis dolorem eius illo mollitia nobis obcaecati, sint! Accusamus ad aliquid amet, asperiores beatae cupiditate delectus dicta dignissimos est harum illum impedit incidunt nobis odio officiis, pariatur porro praesentium provident reiciendis repellat saepe tenetur veritatis voluptate. Impedit, perferendis? Adipisci aperiam architecto assumenda consectetur cupiditate deserunt dolore ducimus eius eligendi ex illum incidunt ipsum laborum, libero necessitatibus officiis possimus qui quia recusandae repudiandae rerum, sunt veritatis voluptatem voluptatibus voluptatum. At aut autem, beatae commodi cum deserunt eligendi est eum excepturi hic id ipsam magnam nisi reprehenderit rerum sunt ut vitae. A adipisci eligendi labore ratione? Eveniet labore molestiae voluptates.
+        </p>
+    </div>
+</main>
+</body>
+</html>
