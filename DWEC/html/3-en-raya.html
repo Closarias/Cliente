@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3 en Raya</title>
+    <style>
+        p{
+            width: 80%;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: 30vh;
+        }
+
+        span{
+            border: 1px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30vh;
+        }
+
+        form{
+            width: 80%;
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <form action="#">
+        <label for="pieza">Selecciona pieza</label>
+        <select name="pieza" id="pieza">
+            <option value="0">Elige</option>
+            <option value="X">X</option>
+            <option value="O">O</option>
+        </select>
+    </form>
+
+    <p></p>
+
+    <script>
+        let tablero = [["","",""],["","",""],["","",""]];
+        let fichaUsuario = "";
+        let fichaOrdenador = "";
+        let final = false;
+
+        window.onload = function(){
+            tablero.forEach(function (valor, indice){
+                valor.forEach(function (valor2, indice2){
+                    document.querySelector("p").innerHTML += `<span onclick="pintar(this, ${indice}, ${indice2})"></span>`;
+                });
+            });
+
+            pieza.onchange = function(){
+                pieza.value != 0 ? fichaUsuario = pieza.value : void(0);
+
+                fichaOrdenador = fichaUsuario == "X" ? "O" : "X";
+
+                document.forms[0].style.display = "none";
+
+                comprobar(fichaUsuario);
+            }
+        }
+
+        function pintar(elemento, pos1, pos2){
+            if (fichaUsuario != "" && elemento.innerHTML == ""){
+                elemento.innerHTML = fichaUsuario;
+
+                tablero[pos1][pos2] = fichaUsuario;
+
+                comprobar(fichaUsuario);
+                setTimeout(mueveOrdenador(), 500);
+            } else {
+                alert("Elige X u O, y pulsa una casilla vacía")
+            }
+        }
+
+        function comprobar(laFicha){
+            ganador = laFicha == fichaUsuario ? "Usuario" : "Ordenador";
+
+            tablero[0][0] == laFicha && tablero[0][1] == laFicha && tablero[0][2] == laFicha ? final = true : void(0);
+            tablero[1][0] == laFicha && tablero[1][1] == laFicha && tablero[1][2] == laFicha ? final = true : void(0);
+            tablero[2][0] == laFicha && tablero[2][1] == laFicha && tablero[2][2] == laFicha ? final = true : void(0);
+            tablero[0][0] == laFicha && tablero[1][1] == laFicha && tablero[2][2] == laFicha ? final = true : void(0);
+            tablero[0][0] == laFicha && tablero[1][0] == laFicha && tablero[2][0] == laFicha ? final = true : void(0);
+            tablero[0][1] == laFicha && tablero[1][1] == laFicha && tablero[2][1] == laFicha ? final = true : void(0);
+            tablero[0][2] == laFicha && tablero[1][2] == laFicha && tablero[2][2] == laFicha ? final = true : void(0);
+            tablero[0][2] == laFicha && tablero[1][1] == laFicha && tablero[2][0] == laFicha ? final = true : void(0);
+
+            final ? confirm(`Ha ganado ${ganador}, ¿Otra partida?`) ? location.reload() : void(0) : void(0);
+        }
+
+        function mueveOrdenador(){
+            if (final == false){
+                fila = Math.floor(Math.random()*3);
+                columna = Math.floor(Math.random()*3);
+
+                posicion = (fila * 3) + columna;
+                document.querySelectorAll("span")[posicion].innerHTML == "" ? (document.querySelectorAll("span")[posicion].innerHTML = fichaOrdenador, tablero[fila][columna] = fichaOrdenador, comprobar(fichaOrdenador)) : mueveOrdenador();
+            }
+        }
+    </script>
+
+</body>
+</html>
